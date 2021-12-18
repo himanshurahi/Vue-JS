@@ -1,17 +1,7 @@
 <template>
   <div>
     <h1>This First APP {{ title }}</h1>
-    <p>YEahh</p>
-    <p>dsf</p>
-    <p>YEahh</p>
-    <p>dsf</p>
-    <p>YEahh</p>
-    <p>dsf</p>
-    <p>YEahh</p>
-    <p>dsf</p>
-    <p>YEahh</p>
-    <p>dsf</p>
-    <Modal />
+    <Modal header = "This is Header 123" />
   </div>
 </template>
 
