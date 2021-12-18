@@ -1,25 +1,19 @@
 <template>
   <div>
     <h1>This First APP {{ title }}</h1>
-    <input type="text" ref="name" />
-    <input type="text" ref="password" />
-    <button @click="handleClick">Click me</button>
+    <Modal />
   </div>
 </template>
 
 <script>
+import Modal from './components/Modal.vue'
 export default {
   name: "App",
+  components : {Modal},
   data() {
     return {
       title: "himanshurahi",
     };
-  },
-
-  methods: {
-    handleClick() {
-      console.log(this.$refs);
-    },
   },
 };
 </script>
