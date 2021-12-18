@@ -3,6 +3,8 @@ const app = Vue.createApp({
     data() { 
         return {
             title : 'Book Name',
+            author : 'himanshurahi',
+            count : 1
         }
     }
 })

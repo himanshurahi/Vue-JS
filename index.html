@@ -10,7 +10,9 @@
 <body>
     Hello Vue
     <div id="app">
-        <h2>{{title}}</h2>
+        <h2>{{title}} - {{author}}</h2>
+        <h3>Count - {{count}}</h3>
+        <button v-on:click = "count++">Increase</button>
     </div>
     <script src="app.js"></script>
 </body>
