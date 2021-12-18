@@ -1,7 +1,7 @@
 <template>
     <div class="backdrop">
         <div class="modal">
-            <p>{{header}}</p>
+            <p>{{header[1]}}</p>
             <p>Name - himanshurahi</p>
         </div>
     </div>

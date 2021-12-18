@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>This First APP {{ title }}</h1>
-    <Modal header = "This is Header 123" />
+    <Modal :header = "['this is data', 4]" />
   </div>
 </template>
 
