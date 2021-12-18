@@ -33,6 +33,11 @@ const app = Vue.createApp({ // data, functions, template
         toggleClass(user){
             user.isFav = !user.isFav;
         }
+    },
+    computed : {
+        filterUser(){
+            return this.users.filter(user => user.isFav == true);
+        }
     }
 })
 

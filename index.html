@@ -13,8 +13,9 @@
     </style>
 </head>
 <body>
-    Hello Vue
+    Hello Vue 
     <div id="app">
+
        <div v-if = 'showBooks'>
            <a v-bind:href="url" v-bind:class="{test : isClass}">Click Me</a>
         <h2>{{title}} - {{author}}</h2>
@@ -22,7 +23,7 @@
         <button @click = "changeTitle('rahi')">Increase</button>
         <br>
         <ul>
-            <li @click = "toggleClass(user)" v-for = 'user in users' :class = "{test : user.isFav}">
+            <li @click = "toggleClass(user)" v-for = 'user in filterUser' :class = "{test : user.isFav}">
                 {{user.name}}
             </li>
         </ul> 
