@@ -1,5 +1,5 @@
 <template>
-  <div class="backdrop" @click="closeModal">
+  <div class="backdrop" @click.self="closeModal">
     <div class="modal">
       <p>{{ header[1] }}</p>
       <p>Name - himanshurahi</p>
