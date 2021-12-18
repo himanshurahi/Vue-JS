@@ -10,9 +10,12 @@
 <body>
     Hello Vue
     <div id="app">
+       <div v-if = 'showBooks'>
         <h2>{{title}} - {{author}}</h2>
         <h3>Count - {{count}}</h3>
-        <button @click = "changeTitle">Increase</button>
+        <button @click = "changeTitle('rahi')">Increase</button>
+       </div>
+       <button @click = 'HideOrShowBooks' >{{showBooks ? 'Hide' : 'Show'}}</button>
     </div>
     <script src="app.js"></script>
 </body>
