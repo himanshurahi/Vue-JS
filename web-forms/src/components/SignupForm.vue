@@ -3,7 +3,7 @@
     <h1>Web Forms</h1>
     <div class="row" style="justify-content: center">
       <div class="col-6">
-        <form>
+        <form @submit.prevent="handleSubmit">
           <div class="form-group">
             <label for="exampleInputEmail1" style="float: left"
               >Email address</label
@@ -25,9 +25,10 @@
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
-              placeholder="Enter email"
+              placeholder="Enter Password"
               v-model="password"
             />
+            <div v-if="passwordError">{{ passwordError }}</div>
           </div>
 
           <div class="form-group">
@@ -55,6 +56,28 @@
             </label>
           </div>
 
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              name=""
+              id=""
+              v-model="tempSkill"
+              @keyup="addSkill"
+            />
+          </div>
+          <div class="form-group">
+            <ul>
+              <li
+                v-for="skill in skills"
+                :key="skill"
+                @click="deleteSkill(skill)"
+              >
+                {{ skill }}
+              </li>
+            </ul>
+          </div>
+
           <button type="submit" class="btn btn-primary">Submit</button>
           <p>Email : {{ email }}</p>
           <p>Password : {{ password }}</p>
@@ -74,7 +97,31 @@ export default {
       password: "",
       role: "",
       terms: false,
+      tempSkill: "",
+      skills: [],
+      passwordError: "",
     };
+  },
+  methods: {
+    addSkill(e) {
+      if (e.key == "," && this.tempSkill) {
+        this.tempSkill = this.tempSkill.split(",")[0];
+        this.skills.push(this.tempSkill);
+        this.tempSkill = "";
+      }
+    },
+
+    deleteSkill(skill) {
+      this.skills = this.skills.filter((skilla) => skilla != skill);
+    },
+
+    handleSubmit() {
+      //check password
+      this.passwordError =
+        this.password.length > 5
+          ? ""
+          : "Password must be at least 6 chars long";
+    },
   },
 };
 </script>
