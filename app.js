@@ -6,6 +6,7 @@ const app = Vue.createApp({ // data, functions, template
             author: 'himanshurahi',
             url : "https://google.com",
             count: 1,
+            isClass : false,
             users: [
                 {
                     name: "himanshirahi"

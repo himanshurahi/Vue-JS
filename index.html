@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@next"></script>
     <title>Document</title>
+    <style>
+        .test{
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
     Hello Vue
     <div id="app">
        <div v-if = 'showBooks'>
-           <a v-bind:href="url">Click Me</a>
+           <a v-bind:href="url" v-bind:class="{test : isClass}">Click Me</a>
         <h2>{{title}} - {{author}}</h2>
         <h3>Count - {{count}}</h3>
         <button @click = "changeTitle('rahi')">Increase</button>
