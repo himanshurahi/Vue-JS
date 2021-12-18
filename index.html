@@ -11,6 +11,7 @@
     Hello Vue
     <div id="app">
        <div v-if = 'showBooks'>
+           <a v-bind:href="url">Click Me</a>
         <h2>{{title}} - {{author}}</h2>
         <h3>Count - {{count}}</h3>
         <button @click = "changeTitle('rahi')">Increase</button>
