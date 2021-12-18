@@ -1,19 +1,28 @@
 <template>
   <div>
     <h1>This First APP {{ title }}</h1>
-    <Modal :header = "['this is data', 4]" />
+    <div v-if="showModal">
+      <Modal :header="['this is data', 4]" @close = 'toggleModal' />
+    </div>
+    <button @click="toggleModal">Open Modal</button>
   </div>
 </template>
 
 <script>
-import Modal from './components/Modal.vue'
+import Modal from "./components/Modal.vue";
 export default {
   name: "App",
-  components : {Modal},
+  components: { Modal },
   data() {
     return {
       title: "himanshurahi",
+      showModal: false,
     };
+  },
+  methods: {
+    toggleModal() {
+      this.showModal = !this.showModal;
+    },
   },
 };
 </script>
@@ -27,5 +36,4 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-
 </style>
