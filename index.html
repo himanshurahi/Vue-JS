@@ -22,7 +22,7 @@
         <button @click = "changeTitle('rahi')">Increase</button>
         <br>
         <ul>
-            <li v-for = 'user in users'>
+            <li @click = "toggleClass(user)" v-for = 'user in users' :class = "{test : user.isFav}">
                 {{user.name}}
             </li>
         </ul> 

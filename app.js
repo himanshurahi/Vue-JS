@@ -9,11 +9,14 @@ const app = Vue.createApp({ // data, functions, template
             isClass : false,
             users: [
                 {
-                    name: "himanshirahi"
+                    name: "himanshirahi",
+                    isFav : false
                 }, {
-                    name: "new himanshu rahi"
+                    name: "new himanshu rahi",
+                    isFav : true
                 }, {
-                    name: "old himanshu rahi"
+                    name: "old himanshu rahi",
+                    isFav : false
                 }
             ]
         }
@@ -25,6 +28,10 @@ const app = Vue.createApp({ // data, functions, template
 
         HideOrShowBooks() {
             this.showBooks = !this.showBooks
+        },
+
+        toggleClass(user){
+            user.isFav = !user.isFav;
         }
     }
 })
