@@ -2,7 +2,10 @@
   <div>
     <h1>This First APP {{ title }}</h1>
     <div v-if="showModal">
-      <Modal :header="['this is data', 4]" @close = 'toggleModal' />
+      <Modal :header="['this is data', 4]" @close = 'toggleModal'>
+        <h1>HimanshuRhai</h1>
+        <p>Yeah Homie</p>
+      </Modal>
     </div>
     <button @click="toggleModal">Open Modal</button>
   </div>
