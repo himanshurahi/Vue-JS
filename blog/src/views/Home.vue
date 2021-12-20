@@ -1,31 +1,22 @@
 <template>
   <div class="home">
-    <input type="text" name="" id="" v-model="search" />
-    <p>{{ search }}</p>
-    <p v-for="name in matchingName" :key="name">{{ name }}</p>
+    <h1>Home</h1>
+    <PostList :posts="posts" />
   </div>
 </template>
 
 <script>
 import { computed, ref, watch, watchEffect } from "vue";
+import PostList from "../components/PostList.vue";
 export default {
   name: "Home",
+  components: { PostList },
   setup() {
-    const search = ref(" ");
-    const names = ref(["rahi", "himasnhrahi"]);
-
-    watch(search, () => {
-      console.log("watch run");
-    });
-
-    watchEffect(() => {
-      console.log("watch effect rn");
-    });
-
-    const matchingName = computed(() => {
-      return names.value.filter((name) => name.includes(search.value));
-    });
-    return { names, search, matchingName };
+    const posts = ref([
+      { title: "this is blog title 1", body: "Blog Body 1", id: 1 },
+      { title: "this is blog title 2", body: "Blog Body 2", id: 2 },
+    ]);
+    return { posts };
   },
 };
 </script>
