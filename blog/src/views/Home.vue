@@ -1,21 +1,22 @@
 <template>
   <div class="home">
-    <p ref="p">my name is {{ nameOne.name }} and {{ nameOne.age }}</p>
-    <button @click="updateName">Click Me</button>
+    <input type="text" name="" id="" v-model="search" />
+    <p>{{ search }}</p>
+    <p v-for="name in matchingName" :key="name">{{ name }}</p>
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
+import { computed, ref } from "vue";
 export default {
   name: "Home",
   setup() {
-    const nameOne = ref({ name: "himanshirahi", age: 35 });
-
-    const updateName = () => {
-      nameOne.value.name = "yah";
-    };
-    return { nameOne, updateName };
+    const search = ref(" ");
+    const names = ref(["rahi", "himasnhrahi"]);
+    const matchingName = computed(() => {
+      return names.value.filter((name) => name.includes(search.value));
+    });
+    return { names, search, matchingName };
   },
 };
 </script>
