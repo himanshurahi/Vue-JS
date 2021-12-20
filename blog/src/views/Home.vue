@@ -15,30 +15,13 @@
 <script>
 import { computed, ref, watch, watchEffect } from "vue";
 import PostList from "../components/PostList.vue";
+import getPosts from "../Composables/getPosts";
 export default {
   name: "Home",
   components: { PostList },
   setup() {
-    const posts = ref([]);
-    const error = ref(null);
-    const showPosts = ref(true);
-
-    const load = async () => {
-      try {
-        let data = await fetch("http://localhost:3000/posts");
-        if (!data.ok) {
-          throw Error("No Data");
-        }
-
-        posts.value = await data.json();
-      } catch (e) {
-        error.value = e.message;
-        console.log(error.value);
-      }
-    };
-
+    const { posts, error, load, showPosts } = getPosts();
     load();
-
     return { posts, showPosts, error };
   },
 };
