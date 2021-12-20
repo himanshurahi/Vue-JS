@@ -7,12 +7,21 @@
 </template>
 
 <script>
-import { computed, ref } from "vue";
+import { computed, ref, watch, watchEffect } from "vue";
 export default {
   name: "Home",
   setup() {
     const search = ref(" ");
     const names = ref(["rahi", "himasnhrahi"]);
+
+    watch(search, () => {
+      console.log("watch run");
+    });
+
+    watchEffect(() => {
+      console.log("watch effect rn");
+    });
+
     const matchingName = computed(() => {
       return names.value.filter((name) => name.includes(search.value));
     });
