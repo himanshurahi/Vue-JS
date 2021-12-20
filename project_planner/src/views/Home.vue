@@ -1,10 +1,11 @@
 <template>
   <div>
+    <FilterNav @filterChange="changeFilter($event)" />
     <ul class="list-group">
       <li
         class="list-group-item"
         :class="{ 'list-group-item-success': project.complete }"
-        v-for="project in projects"
+        v-for="project in filteredData"
         :key="project.id"
       >
         {{ project.title }}
@@ -34,12 +35,14 @@
 
 <script>
 import SingleProject from "../components/SIngleProject.vue";
+import FilterNav from "../components/FilterNav.vue";
 export default {
   name: "Home",
-  components: { SingleProject },
+  components: { SingleProject, FilterNav },
   data() {
     return {
       projects: [],
+      current: "all",
     };
   },
   methods: {
@@ -49,6 +52,11 @@ export default {
       }).then(() => {
         this.projects = this.projects.filter((project) => project.id != id);
       });
+    },
+
+    changeFilter(event) {
+      this.current = event;
+      console.log(event);
     },
 
     toggleComplete(project) {
@@ -71,6 +79,20 @@ export default {
       .catch((error) => {
         console.log(error);
       });
+  },
+  updated() {
+    console.log(this.current);
+  },
+  computed: {
+    filteredData() {
+      if (this.current == "ongoing") {
+        return this.projects.filter((project) => (project.completed = false));
+      }
+      if (this.current == "completed") {
+        return this.projects.filter((project) => (project.completed = true));
+      }
+      return this.projects;
+    },
   },
 };
 </script>
