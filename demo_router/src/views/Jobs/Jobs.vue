@@ -15,12 +15,18 @@
 export default {
   data() {
     return {
-      jobs: [
-        { id: 1, title: "title 1" },
-        { id: 2, title: "title 2" },
-        { id: 3, title: "title 3" },
-      ],
+      jobs: [],
     };
+  },
+  mounted() {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((res) => res.json())
+      .then((data) => {
+        this.jobs = data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 };
 </script>
