@@ -86,10 +86,10 @@ export default {
   computed: {
     filteredData() {
       if (this.current == "ongoing") {
-        return this.projects.filter((project) => (project.completed = false));
+        return this.projects.filter((project) => (project.complete == false));
       }
       if (this.current == "completed") {
-        return this.projects.filter((project) => (project.completed = true));
+        return this.projects.filter((project) => (project.complete == true));
       }
       return this.projects;
     },
