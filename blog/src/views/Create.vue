@@ -1,6 +1,6 @@
 <template>
   <div class="create">
-    <form action="">
+    <form @submit.prevent="handleSubmit">
       <label for="">Title</label>
       <input type="text" name="" id="" v-model="title" />
       <label for="">Content</label>
@@ -37,11 +37,23 @@ export default {
         // tag.value = tag.value.replace("/s/", "");
         tags.value.push(tag.value);
       }
-
       tag.value = "";
     };
 
-    return { title, body, tag, handleKeyDown, tags };
+    const handleSubmit = async () => {
+      const post = {
+        title: title.value,
+        body: body.value,
+        tags: tags.value,
+      };
+      await fetch("http://localhost:3000/posts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(post),
+      });
+    };
+
+    return { title, body, tag, handleKeyDown, tags, handleSubmit };
   },
 };
 </script>

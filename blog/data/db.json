@@ -1,22 +1,31 @@
 {
-    "posts": [
-        {
-            "id": 1,
-            "title": "this is title",
-            "body": "this is body",
-            "tags": [
-                "webdev",
-                "tester"
-            ]
-        },
-        {
-            "id": 2,
-            "title": "this is title 2",
-            "body": "this is body 2",
-            "tags": [
-                "webdev 2",
-                "tester 2"
-            ]
-        }
-    ]
+  "posts": [
+    {
+      "id": 1,
+      "title": "this is title",
+      "body": "this is body",
+      "tags": [
+        "webdev",
+        "tester"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "this is title 2",
+      "body": "this is body 2",
+      "tags": [
+        "webdev 2",
+        "tester 2"
+      ]
+    },
+    {
+      "title": "this is titlw",
+      "body": "body",
+      "tags": [
+        "rahi",
+        "df"
+      ],
+      "id": 3
+    }
+  ]
 }
