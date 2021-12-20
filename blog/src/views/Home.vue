@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <p>my name is {{ name }} and {{ age }}</p>
+    <button @click="handleClick">Click Me</button>
   </div>
 </template>
 
@@ -11,7 +12,10 @@ export default {
     console.log("setup");
     let name = "himanshrahi";
     let age = 30;
-    return { name, age };
+    const handleClick = () => {
+      console.log('clicked');
+    }
+    return { name, age, handleClick };
   },
 };
 </script>
