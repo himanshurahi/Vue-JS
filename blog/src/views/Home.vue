@@ -13,11 +13,11 @@ export default {
     // this.$refs
     //this keyword not available here
     console.log("setup");
-    let name = "himanshrahi";
-    let age = 30;
+    let name = ref("himanshrahi"); //this value is not reactive
+    let age = ref(10);
     const p = ref(null);
     const handleClick = () => {
-      console.log(p.value);
+      (name.value = "rahi"), (age.value = 25);
     };
     return { name, age, handleClick, p };
   },
