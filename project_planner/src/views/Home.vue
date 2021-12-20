@@ -1,16 +1,31 @@
 <template>
   <div>
     <ul class="list-group">
-      <li class="list-group-item" v-for="project in projects" :key="project.id">
+      <li
+        class="list-group-item"
+        :class="{ 'list-group-item-success': project.complete }"
+        v-for="project in projects"
+        :key="project.id"
+      >
         {{ project.title }}
         <div class="icons">
-          <i class="fa fa-pencil m-2" aria-hidden="true"></i>
+          <router-link
+            :to="{ name: 'EditProject', params: { id: project.id } }"
+          >
+            <i class="fa fa-pencil m-2" aria-hidden="true"></i
+          ></router-link>
+
           <i
             @click="deleteProject(project.id)"
             class="fa fa-trash m-2"
             aria-hidden="true"
           ></i>
-          <i class="fa fa-check m-2" aria-hidden="true"></i>
+          <i
+            @click="toggleComplete(project)"
+            class="m-2"
+            :class="[project.complete ? 'fa fa-check' : 'fa fa-times']"
+            aria-hidden="true"
+          ></i>
         </div>
       </li>
     </ul>
@@ -33,6 +48,19 @@ export default {
         method: "DELETE",
       }).then(() => {
         this.projects = this.projects.filter((project) => project.id != id);
+      });
+    },
+
+    toggleComplete(project) {
+      fetch("http://localhost:3000/projects/" + project.id, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ complete: !project.complete }),
+      }).then(() => {
+        let p = this.projects.find((fetchid) => {
+          return fetchid.id == project.id;
+        });
+        p.complete = !p.complete;
       });
     },
   },
