@@ -1,10 +1,12 @@
 <template>
   <div class="home">
     <h3>Home</h3>
-    
+
     <ul v-if="posts.length">
       <li v-for="post in posts" :key="post.id">
-        {{ post.title }}
+        <router-link :to="{ name: 'PostDetail', params: { id: post.id } }">
+          {{ post.title }}
+        </router-link>
       </li>
     </ul>
     <h4 v-else>Loading...</h4>
@@ -28,12 +30,10 @@ export default {
       const PostRef = collection(firestore, "posts");
       // const q = query(PostRef, orderBy('createdAt', 'desc'))
       const snapshot = await getDocs(PostRef);
-
       this.posts = snapshot.docs.map((doc) => {
         return { ...doc.data(), id: doc.id };
         // console.log({ data : doc.data(), id: doc.id });
       });
-
     },
   },
 
