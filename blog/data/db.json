@@ -15,17 +15,31 @@
       "body": "this is body 2",
       "tags": [
         "webdev 2",
-        "tester 2"
+        "tester"
       ]
     },
     {
-      "title": "this is titlw",
-      "body": "body",
+      "title": "a",
+      "body": "new one",
       "tags": [
-        "rahi",
-        "df"
+        "tester",
+        "developer"
       ],
       "id": 3
+    },
+    {
+      "title": "himansh",
+      "body": "ahi",
+      "tags": [],
+      "id": 4
+    },
+    {
+      "title": "ragu",
+      "body": "rahi",
+      "tags": [
+        "webdev"
+      ],
+      "id": 5
     }
   ]
 }

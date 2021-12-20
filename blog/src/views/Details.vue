@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="post">
     <h3>Post Detail</h3>
     <h4>{{ post.title }}</h4>
     <p>{{ post.body }}</p>
@@ -14,7 +14,6 @@ export default {
   setup(props) {
     const route = useRoute();
     const { post, error, load } = getPost(route.params.id);
-
     load();
     return { post, error };
   },
