@@ -62,15 +62,28 @@ export default createStore({
             const json = await res.json();
             commit("setUsers", json)
         },
-
         addCounter({commit}) {
             commit('addCounter')
+        },
+        addUser({commit}, user) {
+          commit("AddUser", user)
+        },
+        deleteUser({commit}, id){
+          commit("deleteUser", id)
         }
     },
     mutations: {
         setUsers: (state, users) => (state.users = users),
         addCounter: (state) => {
             state.counter = state.counter + 1;
+        },
+        AddUser: (state, user) => {
+            let updatedData = state.users
+            updatedData.push(user)
+            state.users = updatedData
+        },
+        deleteUser : (state, id) => {
+          state.users = state.users.filter(user => user.id != id);
         }
     },
     modules: {}
