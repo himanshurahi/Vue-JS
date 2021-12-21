@@ -59,11 +59,15 @@ export default({
         async deleteTodo({
             commit
         }, id) {
+            commit("loading", true)
             try {
                 const res = await deleteDoc(doc(firestore, 'todos', id))
                 commit("deleteTodo", id)
+                commit("loading", false)
+                
             } catch (e) {
                 console.log(e)
+                commit("loading", false)
             }
         }
 
