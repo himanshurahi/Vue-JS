@@ -5,8 +5,16 @@
 
 <script>
 import Navbar from "./components/Navbar.vue";
+import { mapGetters, mapActions } from "vuex";
 export default {
   components: { Navbar },
+  methods : {
+    ...mapActions(['fetchUser'])
+  },
+  mounted(){
+    this.fetchUser();
+  }
+
 };
 </script>
 
