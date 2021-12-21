@@ -33,7 +33,7 @@ export default {
   },
   computed: mapGetters(["allUsers", "counter"]),
   methods: {
-    ...mapActions(["getUsers", "addCounter", "addUser", 'deleteUser']),
+    ...mapActions(["getUsers", "addCounter", "addUser", "deleteUser"]),
 
     handleSubmit() {
       let user = { name: this.name, email: this.email };
