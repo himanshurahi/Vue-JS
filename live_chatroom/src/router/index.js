@@ -2,19 +2,17 @@ import {createRouter, createWebHistory} from 'vue-router'
 import Home from '../views/Home.vue'
 import SignupForm from '../components/SignupForm.vue'
 import LoginForm from '../components/LoginForm.vue'
+import Chatroom from '../views/Chatroom.vue'
 
 const routes = [
     {
         path: '/',
         name: 'Home',
         component: Home
-    }, {
-        path: '/Signup',
-        name: 'SignupForm',
-        component: SignupForm
-    }, {
-        path: '/Login',
-        name: 'LoginForm',
+    },
+    {
+        path: '/chatroom',
+        name: 'Chatroom',
         component: LoginForm
     }, {
         path: '/about',

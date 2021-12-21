@@ -3,7 +3,12 @@
     <div class="sidenav">
       <div class="login-main-text">
         <h2>Login Page</h2>
-        <p style="cursor : pointer" @click="this.$emit('switchPage', 'register')">Click Here for register</p>
+        <p
+          style="cursor: pointer"
+          @click="this.$emit('switchPage', 'register')"
+        >
+          Click Here for register
+        </p>
       </div>
     </div>
     <div class="main">
@@ -73,6 +78,8 @@ export default {
           throw new Error("Something went wrong..");
         }
         console.log(res);
+        this.$emit("loggedIn", res.user);
+        this.$router.push({ name: "Chatroom" });
         this.loading = false;
       } catch (e) {
         this.error = e.message;

@@ -1,22 +1,26 @@
 <template>
   <div>
-    <Home />
+    <div v-if="!isLoggedIn">
+      <LoginForm
+        @switchPage="switchPage($event)"
+        @loggedIn="checkLoggedIn($event)"
+        v-if="form == 'login'"
+      />
+      <SignupForm @switchPage="switchPage($event)" v-if="form == 'register'" />
+    </div>
     <router-view />
   </div>
 </template>
 
 <script>
-import LoginForm from "./components/LoginForm.vue";
-import SignupForm from "./components/SignupForm.vue";
-import Auth from "./views/Auth.vue";
-import Home from "./views/Home.vue";
-
+import LoginForm from "../components/LoginForm.vue";
+import SignupForm from "../components/SignupForm.vue";
 export default {
-  components: { LoginForm, SignupForm, Auth, Home },
+  components: { LoginForm, SignupForm },
   data() {
     return {
       form: "login",
-      isLoggedIn: true,
+      isLoggedIn: false,
     };
   },
   methods: {
