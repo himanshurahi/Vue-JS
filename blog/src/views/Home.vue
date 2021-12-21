@@ -9,6 +9,9 @@
     </div>
     <h3 v-else>Loading..</h3>
     <button @click="showPosts = !showPosts">Toggle Posts</button>
+
+    {{count}}
+    <button @click="count++">Increase Count</button>
   </div>
 </template>
 
@@ -20,9 +23,10 @@ export default {
   name: "Home",
   components: { PostList },
   setup() {
+    const count = ref(0);
     const { posts, error, load, showPosts } = getPosts();
     load();
-    return { posts, showPosts, error };
+    return { posts, showPosts, error, count };
   },
 };
 </script>
