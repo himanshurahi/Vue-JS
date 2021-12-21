@@ -4,17 +4,19 @@
 </template>
 
 <script>
+
 import Navbar from "./components/Navbar.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
   components: { Navbar },
-  methods : {
-    ...mapActions(['fetchUser'])
+  
+  methods: {
+    ...mapActions(["fetchUser"]),
+    
   },
-  mounted(){
+  mounted() {
     this.fetchUser();
-  }
-
+  },
 };
 </script>
 

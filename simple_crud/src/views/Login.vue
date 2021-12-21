@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-6 mt-4" style="margin: auto">
       <div class="alert alert-danger" role="alert" v-if="error">
-       {{error}}
+        {{ error }}
       </div>
       <form @submit.prevent="handleSubmit">
         <div class="form-group">
@@ -44,7 +44,7 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 export default {
-  computed: mapGetters(["loading", "error"]),
+  computed: mapGetters(["loading", "error", "getUser"]),
   data() {
     return {
       email: "",

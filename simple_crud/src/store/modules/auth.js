@@ -52,6 +52,7 @@ export default({
             try {
                 const res = await auth.signOut();
                 commit("setUser", null)
+                commit("error", null)
                 commit("clearTodos")
                 router.push({name: "Login"})
             } catch (e) {
